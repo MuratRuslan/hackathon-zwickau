@@ -13,9 +13,9 @@ public class Answer extends BaseEntity {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "question_answer",
+            name = "questions_answers",
             joinColumns = @JoinColumn(name = "question_id"),
-            inverseJoinColumns = @JoinColumn(name = "id")
+            inverseJoinColumns = @JoinColumn(name = "answer_id")
     )
     private List<Question> questions = new ArrayList<>();
 

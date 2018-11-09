@@ -12,6 +12,6 @@ import java.util.List;
 @Data
 public class Quiz extends BaseEntity {
 
-    @OneToMany
+    @OneToMany(mappedBy = "quiz")
     private List<Question> questions;
 }
