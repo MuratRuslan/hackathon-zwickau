@@ -25,24 +25,24 @@ public class QuestionnaireController {
         this.questionRepository = questionRepository;
     }
 
-    @PostMapping("/questionnaire")
-    public String createQuestionnaire(Model model){
-        List<Question> all = questionRepository.findAll();
-        model.addAttribute("questions", all);
-        return "questionnaire";
-    }
-
-    @GetMapping("/questionnaire")
-    public String getQuestionnaire(Model model) {
-        List<Question> all = questionRepository.findAll();
-        model.addAttribute("questions", all);
-        return "questionnaire";
-    }
-
-    @PostMapping("/questionnaire/add")
-    public String addQuestion(@RequestParam String question) {
-
-        questionRepository.save(new Question(question, new ArrayList(EnumSet.allOf(AnswerType.class))));
-        return "redirect:/questionnaire";
-    }
+//    @PostMapping("/questionnaire")
+//    public String createQuestionnaire(Model model){
+//        List<Question> all = questionRepository.findAll();
+//        model.addAttribute("questions", all);
+//        return "questionnaire";
+//    }
+//
+//    @GetMapping("/questionnaire")
+//    public String getQuestionnaire(Model model) {
+//        List<Question> all = questionRepository.findAll();
+//        model.addAttribute("questions", all);
+//        return "questionnaire";
+//    }
+//
+//    @PostMapping("/questionnaire/add")
+//    public String addQuestion(@RequestParam String question) {
+//
+//        questionRepository.save(new Question(question, new ArrayList(EnumSet.allOf(AnswerType.class))));
+//        return "redirect:/questionnaire";
+//    }
 }
