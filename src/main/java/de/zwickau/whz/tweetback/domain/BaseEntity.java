@@ -2,14 +2,15 @@ package de.zwickau.whz.tweetback.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
+@MappedSuperclass
 @Inheritance
 @Data
-@EqualsAndHashCode
-public class BaseEntity {
+@NoArgsConstructor
+public abstract class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
