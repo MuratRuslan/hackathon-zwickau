@@ -1,5 +1,6 @@
 package de.zwickau.whz.tweetback.domain;
 
+import de.zwickau.whz.tweetback.domain.enums.AnswerType;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -10,6 +11,9 @@ import java.util.List;
 @Entity
 @Table(name = "answers")
 public class Answer extends BaseEntity {
+
+    @Enumerated(EnumType.STRING)
+    private AnswerType answerType;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
