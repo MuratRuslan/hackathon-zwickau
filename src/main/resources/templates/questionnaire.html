@@ -5,15 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/#}" method="post">
-    <h3 th:text="${question}"></h3>
-
-    <input type="radio" name="answer" value="A" checked> A<br>
-    <input type="radio" name="answer" value="B"> B<br>
-    <input type="radio" name="answer" value="C"> C<br>
-    <input type="radio" name="answer" value="D"> D<br><br>
+<div th:each="question : ${questions}">
+    <form th:action="@{/questionnaire/add}" method="post">
+        <input type="text" name="question" th:text="${question.text}">
+        <input type="submit">
+    </form>
+</div>
+<form th:action="@{/questionnaire/add}" method="post">
+    <input type="text" name="question" value="What is ksldjflkj?">
     <input type="submit">
-
 </form>
 </body>
 </html>
