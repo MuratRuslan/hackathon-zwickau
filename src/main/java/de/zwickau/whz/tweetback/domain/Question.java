@@ -17,6 +17,10 @@ public class Question extends BaseEntity {
     @ManyToMany(mappedBy = "questions")
     private List<Answer> answers;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "quiz_id")
+    private Quiz quiz;
+
     public Question(String text, List<Answer> answers) {
         this.text = text;
         this.answers = answers;
