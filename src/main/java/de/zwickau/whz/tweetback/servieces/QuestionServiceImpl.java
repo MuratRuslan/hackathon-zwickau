@@ -1,6 +1,7 @@
 package de.zwickau.whz.tweetback.servieces;
 
 import de.zwickau.whz.tweetback.domain.Question;
+import de.zwickau.whz.tweetback.domain.Subject;
 import de.zwickau.whz.tweetback.repositories.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,10 +12,13 @@ import java.util.List;
 public class QuestionServiceImpl implements QuestionService {
 
     private QuestionRepository questionRepository;
+    private SubjectService subjectService;
 
     @Autowired
-    public QuestionServiceImpl(QuestionRepository questionRepository) {
+    public QuestionServiceImpl(QuestionRepository questionRepository,
+                               SubjectService subjectService) {
         this.questionRepository = questionRepository;
+        this.subjectService = subjectService;
     }
 
     @Override
@@ -30,6 +34,11 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public List<Question> getAllQuestions() {
         return this.questionRepository.findAll();
+    }
+
+    @Override
+    public List<Question> getAllBySubject(Subject subject) {
+        return this.questionRepository.findAllBySubject(subject);
     }
 
     @Override
