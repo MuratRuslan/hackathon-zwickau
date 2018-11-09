@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class QuizController {
+public class RESTQuizController {
 
     private final QuizService quizService;
 
     @Autowired
-    public QuizController(QuizService quizService) {
+    public RESTQuizController(QuizService quizService) {
         this.quizService = quizService;
     }
 

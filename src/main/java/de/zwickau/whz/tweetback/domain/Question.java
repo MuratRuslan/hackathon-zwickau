@@ -1,6 +1,5 @@
 package de.zwickau.whz.tweetback.domain;
 
-import de.zwickau.whz.tweetback.domain.enums.AnswerType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

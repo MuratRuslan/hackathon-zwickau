@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class QuestionController {
+public class RESTQuestionController {
 
     private final QuestionService questionService;
 
     @Autowired
-    public QuestionController(QuestionService questionService) {
+    public RESTQuestionController(QuestionService questionService) {
         this.questionService = questionService;
     }
 
