@@ -10,6 +10,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "questions")
+@NoArgsConstructor
 public class Question extends BaseEntity {
 
     private String text;
@@ -17,7 +18,7 @@ public class Question extends BaseEntity {
     @ManyToMany(mappedBy = "questions")
     private List<Answer> answers;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "quiz_id")
     private Quiz quiz;
 
@@ -26,6 +27,4 @@ public class Question extends BaseEntity {
         this.answers = answers;
     }
 
-    public Question() {
-    }
 }

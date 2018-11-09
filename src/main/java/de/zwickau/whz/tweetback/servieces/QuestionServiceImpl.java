@@ -21,7 +21,7 @@ public class QuestionServiceImpl implements QuestionService {
     public Question getById(Long id) {
         Question question = this.questionRepository.getOne(id);
         if (question != null) {
-            return this.questionRepository.getOne(id);
+            return question;
         } else {
             throw new RuntimeException(String.format("The question with ID = %d is not found", id));
         }
