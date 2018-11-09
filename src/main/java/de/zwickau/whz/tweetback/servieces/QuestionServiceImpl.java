@@ -31,4 +31,9 @@ public class QuestionServiceImpl implements QuestionService {
     public List<Question> getAllQuestions() {
         return this.questionRepository.findAll();
     }
+
+    @Override
+    public void saveQuestion(Question question) {
+        this.questionRepository.save(question);
+    }
 }

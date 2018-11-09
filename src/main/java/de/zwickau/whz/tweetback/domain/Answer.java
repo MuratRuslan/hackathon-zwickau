@@ -1,6 +1,6 @@
 package de.zwickau.whz.tweetback.domain;
 
-import de.zwickau.whz.tweetback.domain.enums.AnswerType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,18 +12,15 @@ import java.util.List;
 @Table(name = "answers")
 public class Answer extends BaseEntity {
 
-    @Enumerated(EnumType.STRING)
-    private AnswerType answerType;
+    @JoinColumn(name = "text")
+    private String text;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
             name = "questions_answers",
-            joinColumns = @JoinColumn(name = "question_id"),
-            inverseJoinColumns = @JoinColumn(name = "answer_id")
+            joinColumns = @JoinColumn(name = "answer_id"),
+            inverseJoinColumns = @JoinColumn(name = "question_id")
     )
     private List<Question> questions = new ArrayList<>();
-
-    public Answer() {
-    }
-
 }

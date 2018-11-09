@@ -1,29 +1,24 @@
 package de.zwickau.whz.tweetback.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @Entity
 @Table(name = "questions")
-@NoArgsConstructor
 public class Question extends BaseEntity {
 
+    @JoinColumn(name = "text")
     private String text;
 
     @ManyToMany(mappedBy = "questions")
-    private List<Answer> answers;
+    private List<Answer> answers = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "quiz_id")
-    private Quiz quiz;
-
-    public Question(String text, List<Answer> answers) {
-        this.text = text;
-        this.answers = answers;
-    }
-
+    @JoinColumn(name = "subject_id")
+    private Subject subject;
 }
