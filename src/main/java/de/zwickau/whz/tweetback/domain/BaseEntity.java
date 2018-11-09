@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @MappedSuperclass
-@Inheritance
 @Data
 @NoArgsConstructor
 public abstract class BaseEntity {

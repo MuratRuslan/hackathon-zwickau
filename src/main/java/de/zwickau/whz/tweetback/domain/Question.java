@@ -1,20 +1,27 @@
 package de.zwickau.whz.tweetback.domain;
 
-import de.zwickau.whz.tweetback.domain.enums.Answer;
+import de.zwickau.whz.tweetback.domain.enums.AnswerType;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
+import java.util.List;
 
-@Entity(name = "question")
 @Data
+@Entity
+@Table(name = "questions")
 public class Question extends BaseEntity {
 
+    private String text;
 
-    private String string;
+    @ManyToMany(mappedBy = "questions")
+    private List<Answer> answers;
 
-    @Enumerated(EnumType.STRING)
-    private Answer answer;
+    public Question(String text, List<Answer> answers) {
+        this.text = text;
+        this.answers = answers;
+    }
 
+    public Question() {
+    }
 }

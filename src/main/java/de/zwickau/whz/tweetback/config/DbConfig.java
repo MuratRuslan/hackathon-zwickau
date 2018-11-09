@@ -23,6 +23,8 @@ public class DbConfig {
 
     @PostConstruct
     public void init() {
+        Question question = new Question("jhk", null);
 
+        questionRepository.save(question);
     }
 }
