@@ -9,4 +9,6 @@ public interface QuestionService {
     Question getById(Long id);
 
     List<Question> getAllQuestions();
+
+    void save(String question);
 }
