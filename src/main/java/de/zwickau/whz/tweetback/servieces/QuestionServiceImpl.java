@@ -48,11 +48,11 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public void saveQuestion(QuestionDto questionDto) {
         Question question = new Question(questionDto.getQuestion());
-        question.setAnswers(List.of(
-                new Answer(questionDto.getAnswer1()),
-                new Answer(questionDto.getAnswer2()),
-                new Answer(questionDto.getAnswer3()),
-                new Answer(questionDto.getAnswer4())
-        ));
+//        question.setAnswers(List.of(
+//                new Answer(questionDto.getAnswer1()),
+//                new Answer(questionDto.getAnswer2()),
+//                new Answer(questionDto.getAnswer3()),
+//                new Answer(questionDto.getAnswer4())
+//        ));
     }
 }
