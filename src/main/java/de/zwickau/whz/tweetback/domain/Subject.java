@@ -17,7 +17,7 @@ public class Subject extends BaseEntity {
 
     @JoinColumn(name = "name")
     private String name;
-//Kalys petuh
+
     @JsonIgnore
     @OneToMany(mappedBy = "subject")
     private List<Question> questions = new ArrayList<>();
