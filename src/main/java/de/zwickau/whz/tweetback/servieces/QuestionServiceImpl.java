@@ -23,12 +23,8 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question getById(Long id) {
-        Question question = this.questionRepository.getOne(id);
-        if (question != null) {
-            return question;
-        } else {
-            throw new RuntimeException(String.format("The question with ID = %d is not found", id));
-        }
+        return this.questionRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException(String.format("The question with ID=%d is not found", id)));
     }
 
     @Override

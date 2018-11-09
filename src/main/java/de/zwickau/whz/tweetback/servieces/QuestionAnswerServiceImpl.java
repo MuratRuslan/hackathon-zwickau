@@ -6,6 +6,7 @@ import de.zwickau.whz.tweetback.domain.QuestionAnswer;
 import de.zwickau.whz.tweetback.repositories.QuestionAnswerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class QuestionAnswerServiceImpl implements QuestionAnswerService {
@@ -17,6 +18,7 @@ public class QuestionAnswerServiceImpl implements QuestionAnswerService {
         this.questionAnswerRepository = questionAnswerRepository;
     }
 
+    @Transactional
     @Override
     public void saveQuestionAnswer(Question question, Answer answer) {
         QuestionAnswer questionAnswer = this.questionAnswerRepository.findByAnswerAndQuestion(answer, question);
