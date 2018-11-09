@@ -13,13 +13,18 @@ public class QuestionServiceImpl implements QuestionService {
     private QuestionRepository questionRepository;
 
     @Autowired
-    public QuestionServiceImpl(QuestionRepository questionRepository){
+    public QuestionServiceImpl(QuestionRepository questionRepository) {
         this.questionRepository = questionRepository;
     }
 
     @Override
     public Question getById(Long id) {
-        return this.questionRepository.getOne(id);
+        Question question = this.questionRepository.getOne(id);
+        if (question != null) {
+            return this.questionRepository.getOne(id);
+        } else {
+            throw new RuntimeException(String.format("The question with ID = %d is not found", id));
+        }
     }
 
     @Override
