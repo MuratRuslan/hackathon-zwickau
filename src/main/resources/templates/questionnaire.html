@@ -5,6 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<h3 th:text="${question}"></h3>
+<form th:action="@{/#}" method="post">
+    <h3 th:text="${question}"></h3>
+
+    <input type="radio" name="answer" value="A" checked> A<br>
+    <input type="radio" name="answer" value="B"> B<br>
+    <input type="radio" name="answer" value="C"> C<br>
+    <input type="radio" name="answer" value="D"> D<br><br>
+    <input type="submit">
+
+</form>
 </body>
 </html>
