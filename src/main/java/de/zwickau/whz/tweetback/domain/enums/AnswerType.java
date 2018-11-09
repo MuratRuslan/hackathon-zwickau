@@ -1,6 +1,6 @@
 package de.zwickau.whz.tweetback.domain.enums;
 
-public enum  Answer {
+public enum AnswerType {
     YES,
     NO
 }
