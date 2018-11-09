@@ -2,7 +2,6 @@ package de.zwickau.whz.tweetback.controllers;
 
 import de.zwickau.whz.tweetback.domain.Answer;
 import de.zwickau.whz.tweetback.domain.Question;
-import de.zwickau.whz.tweetback.domain.QuestionAnswer;
 import de.zwickau.whz.tweetback.dtos.AnswerDTO;
 import de.zwickau.whz.tweetback.servieces.AnswerService;
 import de.zwickau.whz.tweetback.servieces.QuestionAnswerService;

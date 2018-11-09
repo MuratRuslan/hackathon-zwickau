@@ -1,12 +1,13 @@
 package de.zwickau.whz.tweetback.boundary;
 
-import de.zwickau.whz.tweetback.domain.Question;
+import de.zwickau.whz.tweetback.dtos.QuestionDto;
 import de.zwickau.whz.tweetback.servieces.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class QuestionController {
@@ -18,9 +19,9 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
-    @PostMapping("/quiz/{sessionId}/savequestion")
-    public String saveQuestion(@RequestParam String question, @PathVariable String  sessionId) {
-        questionService.save(question);
+    @PostMapping(value = "/quiz/{sessionId}/savequestion")
+    public String saveQuestion(@ModelAttribute QuestionDto questionDto, @PathVariable String  sessionId) {
+        questionService.saveQuestion(questionDto);
         return "redirect:/quiz/{sessionId}";
     }
 }

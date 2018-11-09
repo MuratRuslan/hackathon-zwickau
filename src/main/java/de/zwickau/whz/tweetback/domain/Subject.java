@@ -23,4 +23,8 @@ public class Subject extends BaseEntity {
     @JsonIgnore
     @OneToMany(mappedBy = "subject")
     private List<Question> questions = new ArrayList<>();
+
+    public Subject(String name) {
+        this.name = name;
+    }
 }
