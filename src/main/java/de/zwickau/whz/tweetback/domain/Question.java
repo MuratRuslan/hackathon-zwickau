@@ -16,4 +16,5 @@ public class Question extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private Answer answer;
+
 }
