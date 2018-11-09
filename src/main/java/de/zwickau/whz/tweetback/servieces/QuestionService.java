@@ -10,5 +10,5 @@ public interface QuestionService {
 
     List<Question> getAllQuestions();
 
-    void save(String question);
+    void saveQuestion(Question question);
 }

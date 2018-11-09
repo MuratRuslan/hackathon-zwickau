@@ -9,4 +9,6 @@ public interface AnswerService {
     Answer getById(Long id);
 
     List<Answer> getAll();
+
+    void saveAnswer(Answer answer);
 }

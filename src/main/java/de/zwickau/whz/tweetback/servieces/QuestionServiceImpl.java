@@ -33,7 +33,7 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public void save(String question) {
-        questionRepository.save(new Question(question, null));
+    public void saveQuestion(Question question) {
+        this.questionRepository.save(question);
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AnswerServiceImpl implements AnswerService{
+public class AnswerServiceImpl implements AnswerService {
 
     private AnswerRepository answerRepository;
 
@@ -20,7 +20,7 @@ public class AnswerServiceImpl implements AnswerService{
     @Override
     public Answer getById(Long id) {
         Answer answer = this.answerRepository.getOne(id);
-        if(answer != null){
+        if (answer != null) {
             return answer;
         } else {
             throw new RuntimeException(String.format("The answer with ID=%d is not found", id));
@@ -30,5 +30,10 @@ public class AnswerServiceImpl implements AnswerService{
     @Override
     public List<Answer> getAll() {
         return this.answerRepository.findAll();
+    }
+
+    @Override
+    public void saveAnswer(Answer answer) {
+        this.answerRepository.save(answer);
     }
 }
