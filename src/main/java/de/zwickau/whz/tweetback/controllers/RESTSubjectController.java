@@ -19,13 +19,13 @@ public class RESTSubjectController {
         this.subjectService = quizService;
     }
 
-    @GetMapping("/api/quizzes/{id}")
-    public Subject getOneQuiz(@PathVariable Long id){
+    @GetMapping("/api/subjects/{id}")
+    public Subject getOneSubject(@PathVariable Long id){
         return this.subjectService.getById(id);
     }
 
-    @GetMapping("/api/quizzes")
-    public List<Subject> getAllQuizzes(){
+    @GetMapping("/api/subjects")
+    public List<Subject> getAllSubjects(){
         return this.subjectService.getAll();
     }
 }

@@ -2,7 +2,9 @@ package de.zwickau.whz.tweetback.servieces;
 
 import de.zwickau.whz.tweetback.domain.Answer;
 import de.zwickau.whz.tweetback.repositories.AnswerRepository;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,12 +21,8 @@ public class AnswerServiceImpl implements AnswerService {
 
     @Override
     public Answer getById(Long id) {
-        Answer answer = this.answerRepository.getOne(id);
-        if (answer != null) {
-            return answer;
-        } else {
-            throw new RuntimeException(String.format("The answer with ID=%d is not found", id));
-        }
+        return this.answerRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException(String.format("The answer with ID=%d is not found", id)));
     }
 
     @Override
