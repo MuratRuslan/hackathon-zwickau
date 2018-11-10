@@ -39,10 +39,10 @@ public class DbConfig {
         subject.setName("subject 1");
 
         Subject subject2 = new Subject();
-        subject.setName("subject 2");
+        subject2.setName("subject 2");
 
         Subject subject3 = new Subject();
-        subject.setName("subject 3");
+        subject3.setName("subject 3");
 
         Question question = new Question();
         question.setText("text1");
