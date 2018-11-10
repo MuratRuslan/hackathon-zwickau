@@ -1,11 +1,13 @@
 package de.zwickau.whz.tweetback.domain;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "choose_answers")
 public class QuestionAnswer extends BaseEntity{
 
