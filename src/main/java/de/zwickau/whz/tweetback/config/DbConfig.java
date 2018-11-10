@@ -1,14 +1,13 @@
 package de.zwickau.whz.tweetback.config;
 
 import de.zwickau.whz.tweetback.domain.Answer;
+import de.zwickau.whz.tweetback.domain.Lecture;
 import de.zwickau.whz.tweetback.domain.Question;
 import de.zwickau.whz.tweetback.domain.Subject;
 import de.zwickau.whz.tweetback.repositories.AnswerRepository;
+import de.zwickau.whz.tweetback.repositories.LectureRepository;
 import de.zwickau.whz.tweetback.repositories.QuestionRepository;
 import de.zwickau.whz.tweetback.repositories.SubjectRepository;
-import de.zwickau.whz.tweetback.servieces.AnswerService;
-import de.zwickau.whz.tweetback.servieces.QuestionService;
-import de.zwickau.whz.tweetback.servieces.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,14 +20,17 @@ public class DbConfig {
     private QuestionRepository questionRepository;
     private AnswerRepository answerRepository;
     private SubjectRepository subjectRepository;
+    private LectureRepository lectureRepository;
 
     @Autowired
     public DbConfig(QuestionRepository questionRepository,
                     AnswerRepository answerRepository,
-                    SubjectRepository subjectRepository) {
+                    SubjectRepository subjectRepository,
+                    LectureRepository lectureRepository) {
         this.questionRepository = questionRepository;
         this.answerRepository = answerRepository;
         this.subjectRepository = subjectRepository;
+        this.lectureRepository = lectureRepository;
     }
 
     @PostConstruct
@@ -66,6 +68,11 @@ public class DbConfig {
         answer4.setText("answer 4");
         answer4.getQuestions().add(question);
 
+        Lecture lecture = new Lecture();
+        lecture.setName("lecture 1");
+        lecture.setTheme("lecture theme 1");
+        lecture.setSubject(subject);
+
         this.subjectRepository.save(subject);
         this.subjectRepository.save(subject2);
         this.subjectRepository.save(subject3);
@@ -76,5 +83,6 @@ public class DbConfig {
         this.answerRepository.save(answer2);
         this.answerRepository.save(answer3);
         this.answerRepository.save(answer4);
+        this.lectureRepository.save(lecture);
     }
 }
