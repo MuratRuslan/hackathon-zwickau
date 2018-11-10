@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 
 @Configuration
 public class DbConfig {
@@ -35,9 +36,16 @@ public class DbConfig {
         Subject subject = new Subject();
         subject.setName("subject 1");
 
+        Subject subject2 = new Subject();
+        subject.setName("subject 2");
+
+        Subject subject3 = new Subject();
+        subject.setName("subject 3");
+
         Question question = new Question();
         question.setText("text1");
         question.setSubject(subject);
+        question.setDate(LocalDateTime.now());
 
         Answer answer1 = new Answer();
         answer1.setText("answer 1");
@@ -59,7 +67,11 @@ public class DbConfig {
         answer4.getQuestions().add(question);
 
         this.subjectRepository.save(subject);
+        this.subjectRepository.save(subject2);
+        this.subjectRepository.save(subject3);
+
         this.questionRepository.save(question);
+
         this.answerRepository.save(answer1);
         this.answerRepository.save(answer2);
         this.answerRepository.save(answer3);
