@@ -7,12 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class SubjectController {
+public class QuizController {
 
     private SubjectService subjectService;
 
     @Autowired
-    public SubjectController(SubjectService subjectService) {
+    public QuizController(SubjectService subjectService) {
         this.subjectService = subjectService;
     }
 

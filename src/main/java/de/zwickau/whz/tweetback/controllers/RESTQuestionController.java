@@ -28,7 +28,7 @@ public class RESTQuestionController {
         return this.questionService.getById(id);
     }
 
-    @GetMapping("/api/questions/{subjectId}")
+    @GetMapping("/api/questions/bySubject/{subjectId}")
     public List<Question> getAllQuestions(@PathVariable Long subjectId){
         Subject subject = this.subjectService.getById(subjectId);
         return this.questionService.getAllBySubject(subject);

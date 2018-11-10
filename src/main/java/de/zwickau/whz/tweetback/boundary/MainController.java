@@ -24,7 +24,7 @@ public class MainController {
 //        ModelAndView modelAndView = new ModelAndView("redirect:session");
 //        modelAndView.addObject("sessionId", sessionId);
         model.addAttribute("sessionId", sessionId);
-        return "session";
+        return "quiz";
     }
 
 
